@@ -30,7 +30,7 @@ function FilelUploader() {
     }
 
     // console.log(acceptedFiles);
-  }, []);
+  }, [handleUpload]);
 
   const statusIcons: { [key in StatusText]: JSX.Element } = {
     [StatusText.UPLOADING]: (
