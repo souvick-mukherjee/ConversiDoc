@@ -18,15 +18,15 @@ async function ChatToFilePage({
     .collection("users")
     .doc(userId!)
     .collection("files")
-    .doc('da3d189c-01c5-445b-b368-12b5f5c26a61')
+    .doc(id)
     .get();
 
   const url = ref.data()?.downloadURL;
 
   
-  // console.log(`param ID: ${id}`);
-  // console.log(`User ID: ${userId}`);
-  // console.log(`Download URL: ${url}`);
+  console.log(`param ID: ${id}`);
+  console.log(`User ID: ${userId}`);
+  console.log(`Download URL: ${url}`);
 
   return (
     <div className="grid lg:grid-cols-5 h-full overflow-hidden">
