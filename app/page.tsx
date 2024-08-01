@@ -63,12 +63,12 @@ export default function Home() {
             </p>
             <p className="">
               Introducing{" "}
-              <span className="text-indigo-600 font-bold">Chat with PDF.</span>
+              <span className="text-indigo-600 font-bold">ConversiDoc.</span>
               <br />
               <br />
               Upload your document and our chatbot will answer questions,
               summarize content, and answer all your Qs. Ideal for everyone,
-              <span className="text-indigo-600"> Chat with PDF</span> turns
+              <span className="text-indigo-600"> ConversiDoc</span> turns
               static documents into{" "}
               <span className="font-bold">dynamic conversations</span>,
               enhancing productivity 10x effortlessly.
