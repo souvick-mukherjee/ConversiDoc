@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ConversiDoc - Detailed Overview
 
-## Getting Started
+**ConversiDoc** is an AI-powered document chat application that transforms static PDFs into interactive conversations. Here's a comprehensive breakdown:
 
-First, run the development server:
+## 🎯 Core Purpose
+Turn PDF documents into conversational AI assistants. Users upload PDFs and can ask questions, get summaries, and have natural conversations about the document content.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🏗️ Technology Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend & Framework
+- **Next.js 14.2.5** - React framework
+- **TypeScript** - 94.8% of codebase
+- **Tailwind CSS + DaisyUI** - Styling
+- **React PDF Viewer** - Display PDFs in browser
+- **Lucide React** - UI icons
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Authentication & User Management
+- **Clerk** - User authentication and management
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### AI & LLM
+- **LangChain** - LLM orchestration framework
+- **OpenAI Embeddings** - Convert text to vector embeddings
+- **LangChain OpenAI** - ChatGPT integration
 
-## Learn More
+### Vector Database & Storage
+- **Pinecone** - Vector database for storing PDF embeddings
+- **Firebase Firestore** - Store PDF metadata and document references
+- **Firebase Storage** - Cloud storage for uploaded PDFs
+- **Firebase Admin SDK** - Backend Firebase operations
 
-To learn more about Next.js, take a look at the following resources:
+### File Processing
+- **pdf-parse** - Extract text from PDFs
+- **react-dropzone** - File upload UI
+- **react-markdown** - Render markdown responses
+- **@react-pdf/renderer** - PDF generation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📋 Key Features (from homepage)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Store PDF Documents** - Securely upload and store PDFs
+2. **Blazing Fast Responses** - Quick AI-powered answers
+3. **Chat Memorization** - Maintains conversation history context
+4. **Interactive PDF Viewer** - View PDFs while chatting
+5. **Cloud Backup** - Automatic Firebase backup
+6. **Responsive Design** - Works on desktop, tablet, mobile
 
-## Deploy on Vercel
+## 🔄 Data Flow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Upload Phase**: User uploads PDF → Firebase Storage
+2. **Processing Phase**: 
+   - Extract text from PDF
+   - Split into chunks for processing
+   - Generate vector embeddings using OpenAI
+   - Store embeddings in Pinecone vector database
+3. **Query Phase**:
+   - User asks a question
+   - Convert question to embeddings
+   - Search similar chunks in Pinecone
+   - Use LangChain to generate contextual response with ChatGPT
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📂 Project Structure
+- **`app/`** - Next.js app router pages (landing page, dashboard)
+- **`components/`** - React UI components
+- **`lib/langchain.ts`** - PDF processing and embedding generation logic
+- **`hooks/useUpload.ts`** - File upload handling with progress tracking
+- **`actions/generateEmbeddings.ts`** - Server action for async embedding generation
+- **`firebase.ts`** - Firebase configuration
+
+## 🌐 Deployment
+- **Live deployment**: https://chat-with-pdf-delta.vercel.app
+- **Hosted on**: Vercel
+
+## 📊 Current Status
+- Created: July 24, 2024
+- Last updated: August 2, 2024
+- 662 KB repository size
+- Public repository (no forks/stars yet)
+
+This is a production-ready application that leverages modern AI/ML tools to create a sophisticated document interaction experience.
